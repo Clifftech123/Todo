@@ -20,4 +20,4 @@ Once you have .NET Core installed, you can clone this repository. Navigate to th
 
 For a step-by-step guide on how this API was built, refer to the tutorial article on FreeCodeCamp. The tutorial covers setting up the project, defining the API endpoints, and testing the API.
 
-[Link to the tutorial on FreeCodeCamp](https://www.freecodecamp.org/news/build-a-todo-restful-api-with-asp-net-core-8/)
+[Link to the tutorial on FreeCodeCamp](https://www.freecodecamp.org/news/build-crud-operations-with-dotnet-core-handbook/)
