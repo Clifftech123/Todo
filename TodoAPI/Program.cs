@@ -1,3 +1,5 @@
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Options;
 using TodoAPI.AppDataContext;
 using TodoAPI.Interface;
 using TodoAPI.Middleware;
@@ -18,8 +20,17 @@ builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
 // Adding of the database context
+
 builder.Services.Configure<DbSettings>(builder.Configuration.GetSection("DbSettings"));
-builder.Services.AddSingleton<TodoDbContext>();
+
+builder.Services.AddDbContext<TodoDbContext>((serviceProvider, options) =>
+{
+    var dbSettings = serviceProvider.GetRequiredService<IOptions<DbSettings>>().Value;
+    options.UseSqlServer(dbSettings.ConnectionString);
+});
+
+builder.Services.AddScoped<TodoDbContext>();
+
 
 
 // Adding service 
